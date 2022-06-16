@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div th:text="${greeting}">Greetings</div>
+
+
+    <div id="app">
+        <button @click="grabData">Get Data From Server</button>
+        {{resource}}
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    resource: ''
+                }
+            },
+            methods: {
+                grabData() {
+                    axios.get("/api/resource").then(res=>{
+                        console.log(res);
+                        this.resource = res.data.data
+                    })
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
