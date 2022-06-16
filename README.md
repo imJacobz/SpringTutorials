@@ -1,6 +1,8 @@
 # SpringTutorials
- 
-## Demo apps forked from the official guides.
+
+## Demo apps forked from the official guides and modified for training lessons
+
+[accessing-data](https://github.com/jheng/SpringTutorials/tree/master/accessing-data)
 
 [async-methods](https://github.com/jheng/SpringTutorials/tree/master/async-methods)
 
@@ -8,6 +10,6 @@
 
 [messaging-rabbitmq](https://github.com/jheng/SpringTutorials/tree/master/messaging-rabbitmq)
 
-## Demo apps for training lessons.
+## Demo apps for training lessons
 
 [vue-template](https://github.com/jheng/SpringTutorials/tree/master/vue-template)
