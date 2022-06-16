@@ -7,32 +7,50 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <div th:text="${greeting}">Greetings</div>
+<div th:text="${greeting}">Greetings</div>
 
 
-    <div id="app">
+<div id="app">
+    <div>
         <button @click="grabData">Get Data From Server</button>
         {{resource}}
     </div>
 
-    <script>
-        const { createApp } = Vue
+    <div>
+        <button @click="grabList">Get List</button>
+        <ul>
+            <li v-for="todo in todos" :key="todo.id">
+                <input type="checkbox" :value="todo.id">{{ todo.text }}
+            </li>
+        </ul>
+    </div>
+</div>
 
-        createApp({
-            data() {
-                return {
-                    resource: ''
-                }
-            },
-            methods: {
-                grabData() {
-                    axios.get("/api/resource").then(res=>{
-                        console.log(res);
-                        this.resource = res.data.data
-                    })
-                }
+<script>
+    const {createApp} = Vue
+
+    createApp({
+        data() {
+            return {
+                resource: '',
+                todos: []
             }
-        }).mount('#app')
-    </script>
+        },
+        methods: {
+            grabData() {
+                axios.get("/api/resource").then(res => {
+                    console.log(res);
+                    this.resource = res.data.data
+                })
+            },
+
+            grabList() {
+                axios.get("/api/list").then(res => {
+                    this.todos = res.data.data
+                })
+            }
+        }
+    }).mount('#app')
+</script>
 </body>
 </html>
