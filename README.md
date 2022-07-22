@@ -12,4 +12,6 @@
 
 ## Demo apps for training lessons
 
+[thymeleaf-fragment](https://github.com/jheng/SpringTutorials/tree/master/thymeleaf-fragment)
+
 [vue-template](https://github.com/jheng/SpringTutorials/tree/master/vue-template)
